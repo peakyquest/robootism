@@ -2,7 +2,7 @@
 
 
 
-## Task 1: Install Gazebo, Cartographer, and Navigation2
+## Task 1: Lidar-Based Map Creation into Occupancy Grid Map 
 
 1. Install Gazebo
 
@@ -60,3 +60,38 @@ cd ~/turtlebot3_ws && colcon build --symlink-install
 ```
 export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo empty_world.launch.py
+```
+
+
+
+7. Place the objects in the empty world, so the lidar can detect the object and creat map easily. 
+
+![default_gzclient_camera(1)-2024-09-12T23_57_40 282092](https://github.com/user-attachments/assets/0959d0e5-0fa4-48da-87fb-6ba391511c02)
+
+
+8. Launch the cartographer.launch.py to create map
+
+```
+cd ~/ros2_ws
+colcon build --packages-select cartographer_slam
+source ~/ros2_ws/install/setup.bash
+ros2 launch cartographer_slam cartographer.launch.py
+```
+
+9. Open Rviz
+```
+rviz2 
+```
+Click the Add button under Displays and choose the Map display.
+
+![button](https://github.com/user-attachments/assets/3a23f474-b9d5-4712-b79d-16961ce195cf)
+
+![add](https://github.com/user-attachments/assets/bf962660-f879-4abd-a0bd-970cbe6f3fff)
+
+![Screenshot from 2024-09-12 23-59-56](https://github.com/user-attachments/assets/2a375566-e0e6-41cb-8f40-11fbba4ee7a7)
+
+
+
+
+
+
