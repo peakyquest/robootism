@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- Link1 -->
+  <gazebo reference="link1">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Link3 -->
+  <gazebo reference="link3">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Gazebo's ros2_control plugin -->
+  
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+      <parameters>$(find rrbot_description)/config/rrbot_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+
+</robot>
