@@ -97,7 +97,7 @@ Click the Add button under Displays and choose the Map display.
 In Task 2, two ROS2 packages were created to simulate and control the RRBot robot. The packages include:
 
 1. **`rrbot_description`**
-2. **`rrbot_hardware_interface`**
+2. **`my_robot_hardware_interface`**
 
 These packages facilitate both simulation in Gazebo and real hardware testing using Arduino and serial communication.
 
