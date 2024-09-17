@@ -90,6 +90,70 @@ Click the Add button under Displays and choose the Map display.
 
 ![Screenshot from 2024-09-12 23-59-56](https://github.com/user-attachments/assets/2a375566-e0e6-41cb-8f40-11fbba4ee7a7)
 
+# Task 2: Hardware Interface - Simulation and Hardware (Arduino) Implementation
+
+## Overview
+
+In Task 2, two ROS2 packages were created to simulate and control the RRBot robot. The packages include:
+
+1. **`rrbot_description`**
+2. **`rrbot_hardware_interface`**
+
+These packages facilitate both simulation in Gazebo and real hardware testing using Arduino and serial communication.
+
+## Packages
+
+### 1. `rrbot_description`
+
+This package contains the robot's description using a Xacro file, which includes:
+
+- **Robot Definition**: The Xacro file defines the robot's physical structure, including links and joints.
+- **Materials**: The file includes materials for visualization in **Gazebo** and **RViz**.
+- **ROS2 Control Plugins**: Necessary plugins for integrating with `ros2_control` for hardware simulation and control.
+
+#### Key Files
+
+- `urdf/rrbot.xacro`: Contains the robot description, including visual elements and plugins.
+
+### 2. `my_robot_hardware_interface`
+
+This package provides a custom hardware interface for the RRBot robot, including:
+
+- **Custom Hardware Interface**: Implements the interface required to communicate with the robot's hardware.
+- **Arduino Communication**: Utilizes serial communication to test hardware control using an Arduino.
+
+#### Features
+
+- **Rviz Integration**: The hardware interface is tested in RVIZ for simulating robot control.
+- **Serial Communication**: Interfaces with Arduino to send and receive control signals.
+
+#### How to Run
+
+1. **Simulate in Gazebo**:
+   - Launch the launch file for the hardware_interface 
+    ```
+    ros2 launch my_robot_hardware_interface bring_up_on_hardware.launch.py
+    ```
+
+    ![image](https://github.com/user-attachments/assets/8af86d6e-ed3a-4c06-80af-8e126c5b5f25)
+
+    ```
+    ros2 topic pub /forward_position_controller/commands std_msgs/msg/Float64MultiArray "data:
+    - 1.57
+    - 1.57" -1
+    ```
+
+    ![image](https://github.com/user-attachments/assets/789f1b4f-5565-4e1e-94be-2174fd9fbae5)
+
+
+
+3. **Test with Arduino**:
+   - Flash the Arduino with the provided serial communication code.
+
+## Conclusion
+
+These packages provide a comprehensive setup for both simulating the RRBot in Gazebo and testing hardware control using Arduino. This approach supports flexible development and testing of robotic systems with ROS2.
+
 
 
 
